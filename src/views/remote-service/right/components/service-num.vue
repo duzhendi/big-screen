@@ -1,0 +1,125 @@
+<template>
+  <div class="service-num">
+    <div class="service-chart">
+      <commonChart :option="YCFWBJLFB_OPTION()" />
+    </div>
+    <div class="service-legend">
+      <div v-for="cel in chartData" :key="cel.label" class="cell">
+        <div class="left">
+          <div class="icon" :style="{ background: cel.color }"></div>
+          <span>{{ cel.label }}</span>
+        </div>
+        <div class="center" :style="{ color: cel.color }">{{ cel.num }}<span>次</span></div>
+        <div class="right">
+          占比<span>{{ cel.cert }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import commonChart from '@/components/common-chart.vue'
+import { YCFWBJLFB_OPTION } from '@/views/remote-service/options.js'
+
+const chartData = ref([
+  {
+    num: 36210,
+    cert: 42,
+    label: '引导办',
+    color: '#0091FF'
+  },
+  {
+    num: 28640,
+    cert: 42,
+    label: '智能办',
+    color: '#00EEFF'
+  },
+  {
+    num: 21670,
+    cert: 42,
+    label: '视频办',
+    color: '#FAD760'
+  }
+])
+// 城市数据
+</script>
+
+<style scoped lang="scss">
+.service-num {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .service-chart {
+    width: 193px;
+    height: 178px;
+    background: url('@/assets/images/grap-0098.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .service-legend {
+    width: 223px;
+    height: 177px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .cell {
+      height: 51px;
+      background: url('@/assets/images/home/Rectangle346241641.png');
+      background-size: 100% 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      box-sizing: border-box;
+      .left {
+        display: flex;
+        align-items: center;
+        .icon {
+          width: 6px;
+          height: 6px;
+          margin-right: 4px;
+        }
+        > span {
+          font-size: 14px;
+          background: linear-gradient(180deg, #ffffff 70%, #adcdff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+      }
+      .center {
+        font-family: Alibaba-PuHuiTi-Medium;
+        font-size: 14px;
+        > span {
+          font-family: Alibaba-PuHuiTi-Regular;
+          font-size: 14px;
+          background: linear-gradient(180deg, #ffffff 70%, #adcdff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+      }
+      .right {
+        font-size: 14px;
+        background: linear-gradient(180deg, #ffffff 70%, #adcdff 100%);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        > span {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+}
+</style>

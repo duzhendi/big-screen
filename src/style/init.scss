@@ -1,0 +1,136 @@
+// 处理默认margin&padding问题
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+// 标题样式统一设置，fontSize设置字体大小，默认18px；
+@mixin titleWordsStyle($fontSize: 22px) {
+  @include ALIBABAPUHUITIBOLD($fontSize);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 196, 33, 1)
+  ); /*设置渐变的方向从左到右 颜色从ff0000到ffff00*/
+  -webkit-background-clip: text; /*将设置的背景颜色限制在文字中*/
+  -webkit-text-fill-color: transparent; /*给文字设置成透明*/
+}
+
+@mixin titleWordsNumStyle($fontSize: 22px) {
+  @include ALIBABAPUHUITI($fontSize);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 196, 33, 1)
+  ); /*设置渐变的方向从左到右 颜色从ff0000到ffff00*/
+  -webkit-background-clip: text; /*将设置的背景颜色限制在文字中*/
+  -webkit-text-fill-color: transparent; /*给文字设置成透明*/
+}
+
+@mixin dialogTitleWordsStyle($fontSize: 22px) {
+  @include ALIBABAPUHUITIBOLD($fontSize);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(33, 207, 255, 1)
+  ); /*设置渐变的方向从左到右 颜色从ff0000到ffff00*/
+  -webkit-background-clip: text; /*将设置的背景颜色限制在文字中*/
+  -webkit-text-fill-color: transparent; /*给文字设置成透明*/
+}
+
+// 数字样式
+@mixin commonNumberStyle($size: 22px, $weight: 700) {
+  color: rgba(33, 207, 255, 1);
+  @include NUMBERTEXTBOLD($size);
+  font-weight: $weight;
+}
+
+// 正文字体 24px / 28px / 32px
+@mixin ALIBABAPUHUITI($fontSize) {
+  // font-family: Alibaba-PuHuiTi-Light;
+  font-family: Alibaba-PuHuiTi-Regular;
+  font-size: $fontSize;
+}
+
+// 正文加粗 24px / 28px / 32px
+@mixin ALIBABAPUHUITIBOLD($fontSize) {
+  font-family: Alibaba-PuHuiTi-Bold;
+  font-size: $fontSize;
+}
+
+@mixin ALIBABAPUHUITIHEAVY($fontSize) {
+  font-family: Alibaba-PuHuiTi-Heavy;
+  font-size: $fontSize;
+}
+
+@mixin ALIBABAPUHUITIMEDIUM($fontSize) {
+  font-family: Alibaba-PuHuiTi-Medium;
+  font-size: $fontSize;
+}
+
+@mixin ALIBABAPUHUITIREGULAR($fontSize) {
+  font-family: Alibaba-PuHuiTi-Regular;
+  font-size: $fontSize;
+}
+
+// 数字 48px / 39px / 28px / 24px
+@mixin NUMBERTEXT($fontSize) {
+  font-family: Helvetica;
+  font-size: $fontSize;
+}
+
+@mixin NUMBERTEXTBOLD($fontSize) {
+  font-family: Helvetica-Bold;
+  font-size: $fontSize;
+}
+
+// 大标题
+@mixin TITLELARGE {
+  font-family: Alimama-ShuHeiTi;
+  font-size: 78px;
+}
+
+// 一级标题
+@mixin TITLE1 {
+  font-family: Alimama-ShuHeiTi;
+  font-size: 64px;
+}
+
+// 二级标题
+@mixin TITLE2 {
+  font-family: Alimama-ShuHeiTi;
+  font-size: 52px;
+}
+
+// 数字
+@mixin OPPOSANSHeavy($fontSize) {
+  font-family: OPPOSans-Heavy;
+  font-size: $fontSize;
+}
+.el-select-dropdown__wrap {
+  max-height: 320px !important;
+}
+
+//下拉框弹出列表整体样式
+.el-select-dropdown__list {
+  padding: 0;
+  border: 1px solid #1d8fe4;
+  background: rgb(18, 31, 60);
+  box-shadow: inset 0px 0px 10px 0px rgba(35, 165, 247, 0.65);
+}
+
+//下拉框弹出样式
+.el-select__popper.el-popper {
+  border: none !important;
+}
+
+//select下拉弹出框箭头样式
+.el-popper.is-light .el-popper__arrow::before {
+  background: rgb(18, 31, 60) !important;
+  border: 1px solid #1d8fe4 !important;
+}
+
+.fr {
+  float: right;
+}
